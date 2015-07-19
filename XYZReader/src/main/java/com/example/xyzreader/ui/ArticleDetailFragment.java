@@ -98,8 +98,6 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
         collapsingToolbar= (CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsing_toolbar);
-        //bindViews();
-        //updateStatusBar();
 
         Toolbar toolbar = (Toolbar)mRootView.findViewById(R.id.article_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -123,10 +121,6 @@ public class ArticleDetailFragment extends Fragment implements
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
         if (mCursor != null) {
-            mRootView.setAlpha(0);
-            mRootView.setVisibility(View.VISIBLE);
-            mRootView.animate().alpha(1);
-
             collapsingToolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
 
             bylineView.setText(Html.fromHtml(
@@ -146,7 +140,6 @@ public class ArticleDetailFragment extends Fragment implements
                             Bitmap bitmap = imageContainer.getBitmap();
                             if (bitmap != null) {
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
-                                //updateStatusBar();
                             }
                         }
 
